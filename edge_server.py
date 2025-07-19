@@ -897,14 +897,13 @@ class EdgeTTSHandler(SimpleHTTPRequestHandler):
 
 def start_server():
     """Start the Edge TTS server"""
-    # Use environment variables for deployment (Railway, Render, etc.)
-    port = int(os.environ.get('PORT', 8000))
-    host = '0.0.0.0'  # Always use 0.0.0.0 for cloud deployment
+    port = 8000
+    host = 'localhost'
     
     try:
         server = HTTPServer((host, port), EdgeTTSHandler)
         logger.info("🚀 Edge TTS Pro Server starting...")
-        logger.info(f"📱 Server running on port {port}")
+        logger.info(f"📱 Open your browser and go to: http://{host}:{port}")
         logger.info("🇺🇸 English voices: Aria, Jenny, Guy, Andrew, Sonia, Ryan, Natasha, William")
         logger.info("🇸🇦 Arabic voices: Zariyah, Hamed, Salma, Shakir")
         logger.info("✨ Only verified, working voices included!")
